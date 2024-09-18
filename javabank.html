@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Demo Bank</title>
+</head>
+<link rel="stylesheet" href="javabank.css">
+<body style="margin: 0px; background: #ededed;">
+	<!-- header -->
+	<center class="">
+		<div class="secondHistroy" style="display: none; height: 100%; width: 100%; background-color: rgb(0,0,0,0.7); position: fixed; overflow-y: auto;">
+			
+			<div style="margin-top: 85px;" class="totalTransactions">
+				<button id="close" Onclick="history_close()" title="close History">X</button>
+				<div class="totalDeposit" style="float: inline-start;">
+					
+				</div>
+		
+				<div class="totalWithdraw">
+					
+				</div>
+			</div>
+			<div style="max-height: 400px; width: 49%; border-radius: 10px; margin-top: 200px; overflow-y: scroll;">
+				<div style="width:100%" class="transctions2">
+					
+				</div>
+			</div>
+		</div>
+	</center>
+	<header style="width:100%; position: fixed; background:#000; height: 100%;" id="sign_inField">
+		<nav>
+			<div style="width:250px; float: left; color:orangered; text-indent: 10px;">
+				<h2><label class="userName"></label></h2>
+			</div>
+			<div style="width:100px; height:80px; margin: auto;">
+		        <div class="loader">
+		        	<pre style="font-size: 13px;" id="loaderText"> BITRIX</pre>
+		        </div>
+	    	</div>
+	    	<div style="width: 100%; text-align:center; margin: 200px 0px 0px 0px;" class="loginDetails">
+	    		<input type="text" name="User" placeholder="User" class="headerInput userName_Input" autofocus>
+	    		<input type="number" name="Pin" placeholder="Pin" class="headerInput UserPin">
+	    		<input type="submit" name="Submit" value="&#10148;" onclick="login()" class="headerInput submit userSubmit">
+	    	</div>
+
+	    	<!-- LOGOUT -->
+	    	<div style="width: 200px; float:right; margin: -65px 0px 0px 0px;">
+	    		<input type="submit" name="Submit" value="Logout &#10148;" onclick="logout()" class="headerInput logoutBtn userLogout">
+	    	</div>
+		</nav>
+	</header><br>
+
+	<!-- DIV HOLDING WITHDRAW AND DEPOSIT CALCULATION -->
+	<div style="margin-top: 60px;" class="totalTransactions">
+		<div class="totalDeposit">
+			
+		</div>
+
+		<div class="totalWithdraw">
+			
+		</div>
+	</div>
+	
+	<!-- body -->
+	<section id="body">
+		<!-- SECTION HEADER -->
+		<center>
+			<button style="font-size: 25px;" class="headerInput submit historyBtn"  onclick="history_pop()">history &#9783;</button>
+		</center>
+
+		<div class="scetHeader">
+			<h3>current balance<br><span class="labPersonal">as of today</span></h3>
+			
+			<label class="totalAmount"></label>
+		</div>
+		<!-- TRANS HISTORY -->
+		<div id="nav-overflow" class="history" onmouseover="showOverflow()" onmouseleave="hideOverflow()">
+			<div style="width:100%" class="transctions">
+				
+			</div>
+		</div>
+
+		<!-- PAYMENT FIELD -->
+		<div class="transactionDiv">
+			<main class="transMoney">
+				<div style="width:170px;">
+					<h3>transfer money</h3>
+					<input type="text" name="TransTo" class="headerInput transTo"><br>
+					<span class="labPersonal">transfer to</span>
+				</div>
+				<div style="width:225px; float:left; margin-top: -2px;">
+					<input type="number" name="Amount" class="headerInput transAmount">
+					<input type="submit" name="Submit" value="&#10148;" class="headerInput submit transSubmit"><br>
+					<span class="labPersonal">amount</span>
+				</div>
+			</main>
+
+			<main class="reqLoan">
+				<div>
+					<h3>request loan</h3>
+					<input type="number" name="Amount" class="headerInput loanAmount">
+					<input type="submit" name="Submit" value="&#10148;" class="headerInput submit loanSubmit"><br>
+					<span class="labPersonal"> amount</span>
+				</div>
+			</main>
+
+			<main class="closeAcc">
+					
+				<div style="width:170px; float:left;">
+					<label>close account</label><br>
+					<input type="text" name="ConUser" class="headerInput close_ConUser" disabled placeholder="disabled">
+					<span class="labPersonal">confirm user</span>
+				</div>
+				<div style="width:225px; float:left; margin-top: -2px;">
+					<input type="number" name="ConPin" class="headerInput close_ConPIn" disabled placeholder="disabled">
+					<input type="submit" name="Submit" value="&#10148;" class="headerInput submit close_Submit" disabled><br>
+					<span class="labPersonal">comfirm pin</span>
+				</div>	
+			</main>
+		</div>
+	</section>
+</body>
+<script src="javaBankScript.js"></script>
+</html>
